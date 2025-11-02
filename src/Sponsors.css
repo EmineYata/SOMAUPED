@@ -1,0 +1,120 @@
+.sponsors-section {
+  padding: 80px 20px;
+  background-color: #ffffff;
+}
+
+.sponsors-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sponsors-category {
+  margin-bottom: 60px;
+}
+
+.category-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  color: #e74c3c;
+  margin-bottom: 40px;
+  letter-spacing: 1px;
+}
+
+.sponsors-title {
+  color: #e74c3c;
+}
+
+.sponsors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+  align-items: center;
+}
+
+.partners-grid {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.sponsor-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 15px;
+}
+
+.sponsor-logo {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.sponsor-logo:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.sponsor-logo img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.sponsor-name {
+  font-size: 13px;
+  color: #555;
+  font-weight: 500;
+  margin: 0;
+  max-width: 200px;
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .sponsors-section {
+    padding: 60px 15px;
+  }
+
+  .category-title {
+    font-size: 24px;
+  }
+
+  .sponsors-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 30px;
+  }
+
+  .partners-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+
+  .sponsor-logo {
+    width: 120px;
+    height: 120px;
+  }
+
+  .sponsor-name {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sponsors-grid,
+  .partners-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .sponsor-logo {
+    width: 100px;
+    height: 100px;
+    padding: 15px;
+  }
+}
