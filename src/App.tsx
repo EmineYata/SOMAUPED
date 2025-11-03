@@ -20,8 +20,8 @@ function App() {
         <Speakers />
         <Programme />
         <Agenda />
-        <Sponsors />
         <Members />
+        <Sponsors />
       </main>
       <Footer />
       <ScrollToTop />

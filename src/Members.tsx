@@ -3,34 +3,69 @@ import './Members.css';
 const Members = () => {
   const members = [
     {
-      name: "Pr I Khalifa",
+      name: "PR ISSELMOU KHALIFA",
       position: "Président",
       image: "/src/images/author1.jpg"
     },
     {
-      name: "Pr A FEIL",
-      position: "Vice-président",
+      name: "PR AHMED FEIL",
+      position: "1er Vice-Président",
       image: "/src/images/author2.jpg"
     },
     {
-      name: "Dr. BENINA",
-      position: "Vice-président",
+      name: "PR MOHAMED ELY TELMOUDI",
+      position: "2e Vice-Président",
       image: "/src/images/author3.jpg"
     },
     {
-      name: "Dr.M SIDATT",
-      position: "Secrétaire Général",
+      name: "DR EKHT ELBENINE ZEIN",
+      position: "3e Vice-Présidente",
+      image: "/src/images/author7.jpg"
+    },
+    {
+      name: "DR MARIEME SIDATT",
+      position: "Secrétaire Générale",
       image: "/src/images/author4.jpg"
     },
     {
-      name: "Dr N ABDALLAHI",
-      position: "Trésorier",
+      name: "DR NASSER EDDINE ABDELLAHI",
+      position: "Secrétaire Général Adjoint",
       image: "/src/images/author5.jpg"
     },
     {
-      name: "Dr A NDIAY",
-      position: "Membre",
+      name: "DR AMINA NDIAYE",
+      position: "Trésorière",
       image: "/src/images/author6.jpg"
+    },
+    {
+      name: "DR HAMDY MOUSTAPHA",
+      position: "Trésorier Adjoint",
+      image: "/src/images/author8.jpg"
+    },
+    {
+      name: "DR AISSATA BA",
+      position: "Assesseur",
+      image: "/src/images/author9.jpg"
+    },
+    {
+      name: "DR ABIDA MEGUEYA",
+      position: "Assesseur",
+      image: "/src/images/author1.jpg"
+    },
+    {
+      name: "DR ABASS MOHAMED",
+      position: "Assesseur",
+      image: "/src/images/author2.jpg"
+    },
+    {
+      name: "DR LEMRABOTT BEDDI",
+      position: "Assesseur",
+      image: "/src/images/author3.jpg"
+    },
+    {
+      name: "DR AICHA BIHA",
+      position: "Assesseur",
+      image: "/src/images/author4.jpg"
     }
   ];
 

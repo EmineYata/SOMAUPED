@@ -31,10 +31,18 @@
   font-size: 48px;
   font-weight: 700;
   color: #ffffff;
-  margin: 0;
+  margin: 0 0 15px 0;
   text-transform: uppercase;
   letter-spacing: 2px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.orateurs-subtitle {
+  font-size: 18px;
+  color: #ecf0f1;
+  margin: 0;
+  font-weight: 400;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 @media (max-width: 768px) {
