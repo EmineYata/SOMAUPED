@@ -4,12 +4,61 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url('./images/main-bg2.jpg');
+  overflow: hidden;
+  margin-top: 90px;
+}
+
+/* Carrousel d'images de fond */
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  overflow: hidden;
-  margin-top: 90px;
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+  z-index: 0;
+}
+
+.hero-background.active {
+  opacity: 1;
+}
+
+/* Indicateurs de carrousel */
+.carousel-indicators {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 10;
+}
+
+.carousel-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.carousel-dot:hover {
+  background: rgba(255, 255, 255, 0.8);
+  transform: scale(1.2);
+}
+
+.carousel-dot.active {
+  background: #ffffff;
+  width: 40px;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
 }
 
 .hero-overlay {
@@ -18,7 +67,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(30, 35, 60, 0.85);
+  /* background: rgba(30, 35, 60, 0.85); */
   z-index: 1;
 }
 
@@ -231,5 +280,35 @@
 
   .countdown-item {
     min-width: 70px;
+  }
+
+  .carousel-indicators {
+    bottom: 20px;
+    gap: 10px;
+  }
+
+  .carousel-dot {
+    width: 10px;
+    height: 10px;
+  }
+
+  .carousel-dot.active {
+    width: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-indicators {
+    bottom: 15px;
+    gap: 8px;
+  }
+
+  .carousel-dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .carousel-dot.active {
+    width: 24px;
   }
 }

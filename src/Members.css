@@ -8,6 +8,37 @@
   margin: 0 auto;
 }
 
+/* Subsections pour Bureau et Adhérants */
+.members-subsection {
+  margin-bottom: 60px;
+}
+
+.members-subsection:last-child {
+  margin-bottom: 0;
+}
+
+.subsection-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.subsection-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #3498db, #e74c3c);
+  border-radius: 2px;
+}
+
 .members-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -51,6 +82,37 @@
   object-fit: cover;
 }
 
+/* Icônes pour les adhérants */
+.member-icon-wrapper {
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 25px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+  transition: all 0.3s ease;
+}
+
+.adherant-card:hover .member-icon-wrapper {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  box-shadow: 0 8px 20px rgba(245, 87, 108, 0.4);
+  transform: scale(1.05);
+}
+
+.member-icon {
+  width: 100px;
+  height: 100px;
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.adherant-card:hover .member-icon {
+  transform: scale(1.1);
+}
+
 .member-name {
   font-size: 22px;
   font-weight: 700;
@@ -70,6 +132,20 @@
     padding: 60px 15px;
   }
 
+  .members-subsection {
+    margin-bottom: 50px;
+  }
+
+  .subsection-title {
+    font-size: 26px;
+    margin-bottom: 30px;
+  }
+
+  .subsection-title::after {
+    width: 60px;
+    height: 3px;
+  }
+
   .members-grid {
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 30px;
@@ -84,6 +160,16 @@
     height: 150px;
   }
 
+  .member-icon-wrapper {
+    width: 150px;
+    height: 150px;
+  }
+
+  .member-icon {
+    width: 80px;
+    height: 80px;
+  }
+
   .member-name {
     font-size: 20px;
   }
@@ -94,6 +180,19 @@
 }
 
 @media (max-width: 480px) {
+  .members-subsection {
+    margin-bottom: 40px;
+  }
+
+  .subsection-title {
+    font-size: 22px;
+    margin-bottom: 25px;
+  }
+
+  .subsection-title::after {
+    width: 50px;
+  }
+
   .members-grid {
     grid-template-columns: 1fr;
     gap: 25px;
@@ -102,5 +201,15 @@
   .member-image-wrapper {
     width: 140px;
     height: 140px;
+  }
+
+  .member-icon-wrapper {
+    width: 140px;
+    height: 140px;
+  }
+
+  .member-icon {
+    width: 70px;
+    height: 70px;
   }
 }

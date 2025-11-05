@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react';
 import logo from './images/logo.png';
+import mainBg1 from './images/main6.jpg';
+import mainBg2 from './images/los.png';
+import mainBg3 from './images/main5.webp';
 import './Hero.css';
 
 const Hero = () => {
@@ -19,8 +22,11 @@ const Hero = () => {
     return { days: 0, hours: 0, minutes: 0, seconds: 0 };
   };
 
+  const backgroundImages = [mainBg1 ,mainBg3];
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
+  // Timer pour le compte à rebours
   useEffect(() => {
     const timer = setInterval(() => {
       setTimeLeft(calculateTimeLeft());
@@ -29,8 +35,27 @@ const Hero = () => {
     return () => clearInterval(timer);
   }, []);
 
+  // Carrousel d'images automatique
+  useEffect(() => {
+    const carousel = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => 
+        prevIndex === 1 ? 0 : prevIndex + 1
+      );
+    }, 5000); // Change d'image toutes les 5 secondes
+
+    return () => clearInterval(carousel);
+  }, []);
+
   return (
     <section id="accueil" className="hero">
+      {/* Images de fond en carrousel */}
+      {backgroundImages.map((image, index) => (
+        <div
+          key={index}
+          className={`hero-background ${index === currentImageIndex ? 'active' : ''}`}
+          style={{ backgroundImage: `url(${image})` }}
+        ></div>
+      ))}
       <div className="hero-overlay"></div>
       <div className="hero-content">
         <div className="hero-logos">
@@ -90,6 +115,18 @@ const Hero = () => {
         <img src="/src/images/shapes/2.png" className="shape shape-2" alt="" />
         <img src="/src/images/shapes/3.png" className="shape shape-3" alt="" />
         <img src="/src/images/shapes/4.png" className="shape shape-4" alt="" />
+      </div>
+
+      {/* Indicateurs de carrousel */}
+      <div className="carousel-indicators">
+        {backgroundImages.map((_, index) => (
+          <button
+            key={index}
+            className={`carousel-dot ${index === currentImageIndex ? 'active' : ''}`}
+            onClick={() => setCurrentImageIndex(index)}
+            aria-label={`Image ${index + 1}`}
+          />
+        ))}
       </div>
     </section>
   );
