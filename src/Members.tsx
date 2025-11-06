@@ -69,38 +69,72 @@ const Members = () => {
     }
   ];
 
-  const adherants = [
-    {
-      name: "DR MOHAMED OULD AHMED",
-      position: "Adhérant",
-      image: "/src/images/author5.jpg"
-    },
-    {
-      name: "DR FATIMA MINT SALEM",
-      position: "Adhérant",
-      image: "/src/images/author6.jpg"
-    },
-    {
-      name: "DR AHMED OULD MOHAMED",
-      position: "Adhérant",
-      image: "/src/images/author7.jpg"
-    },
-    {
-      name: "DR MARYAM MINT OULD BABA",
-      position: "Adhérant",
-      image: "/src/images/author8.jpg"
-    },
-    {
-      name: "DR SAID OULD ALI",
-      position: "Adhérant",
-      image: "/src/images/author9.jpg"
-    },
-    {
-      name: "DR KHADIJA MINT SIDIYA",
-      position: "Adhérant",
-      image: "/src/images/author1.jpg"
-    }
+  const adherantNames = [
+    "PR ISSELMOU KHALIFA",
+    "PR AHMED FEIL",
+    "PR YACOUB KHALEF",
+    "PR MOHAMED TELMOUDI",
+    "PR ABDELLAHI WEDDIH",
+    "PR CHEIKH ABDELLAHI",
+    "PR MOUNA SIDATT",
+    "PR SIDI BRAHIM SID OUMAR",
+    "PR OUKHTELBENINA ZEIN",
+    "PR ZEINABOU HAIDY",
+    "DR SIDI MOHAMED SIDI MAHMOUD",
+    "DR AISSATA BA",
+    "DR Ahmed DAHMOUD",
+    "DR KHATRY MEKHALE",
+    "DR MARIEM SIDI BRAHIM",
+    "DR SAADBOUH AMAR BEBATT",
+    "PR BEZEID MOHAMEDEN",
+    "DR MOHAMED LEMINE CHERIF ELVAGHIH",
+    "DR ABASS MOHAMED",
+    "DR NASSERDINE ABDELLAHI",
+    "DR AHMED YOUSSEF",
+    "DR AMINA NDIAYE",
+    "DR CHEIKHNA MEYABA",
+    "DR EBIBECRINE LEMRABETT",
+    "DR MOHAMED LEMINE TALEB AHMED",
+    "DR HOUDA RABBANY",
+    "DR SID’AHMED EL WAVI",
+    "DR LEMRABET BEDDI",
+    "DR MAIMOUNA SEPTI",
+    "DR MOHAMED TALEB",
+    "DR NOUMA LEBATT",
+    "DR MOULAYE ZEINE MOHAMED MAHMOUD",
+    "DR TEWFIGH GHADOUR",
+    "DR SIDI MOHAMED ELHACENE",
+    "DR VAYZE AHMED ELBECHIR",
+    "DR AHMED SALEM HMETY",
+    "DR ABIDA AHMED MEGAYA",
+    "DR AHMED BEZEID",
+    "DR AICHA BIHA",
+    "DR MOHAMED DIAGANA",
+    "DR ABDELLAHI ELWELY",
+    "DR EMMANETOULLAH MAMMINE",
+    "DR MOHAMED KANE",
+    "DR LEMRABET SID’AHMED HABIB",
+    "DR MOHAMED TIYIB ELIDI",
+    "DR MLOHAMEDOU AHMED GUEDDAR",
+    "DR MOHAMED MENE",
+    "DR MARIEME ABDELLAHI",
+    "DR CHEIKH ELMOUSTAINE BOUBY",
+    "DR DIANGO MAMADOU WAGUE",
+    "DR TAHER BAMINE",
+    "DR ZEINE EL ABIDINE MOHAMED MOUSTAPHA",
+    "DR ABDI BOUKHAIR",
+    "DR MOHAMED LEINE KEBAD",
+    "DR MAMADOU ATHIE",
+    "DR JAFAR TANDIA",
+    "DR MOUNINA SID’EL MOKHTAR",
+    "DR ROKIA MAGUIRAGA",
+    "DR ELBAR BABA CHEIKH",
   ];
+
+  const adherants = adherantNames.map(name => ({
+    name,
+    position: "Adhérant",
+  }));
 
   return (
     <section id="membre" className="members-section">

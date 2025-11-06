@@ -6,6 +6,7 @@ import Programme from './Programme'
 import Agenda from './Agenda'
 import Sponsors from './Sponsors'
 import Members from './Members'
+import Discover from './Discover'
 import Footer from './Footer'
 import ScrollToTop from './ScrollToTop'
 import './App.css'
@@ -21,6 +22,7 @@ function App() {
         <Programme />
         <Agenda />
         <Members />
+        <Discover />
         <Sponsors />
       </main>
       <Footer />
