@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import logo from './images/logo.png';
 import mainBg1 from './images/bg1.jpg';
 import mainBg2 from './images/bg2.jpg';
-import mainBg3 from './images/bg3.png';
+import mainBg3 from './images/bg5.jpg';
 import mainBg4 from './images/bg4.jpg';
 import './Hero.css';
 
