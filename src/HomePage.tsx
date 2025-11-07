@@ -16,8 +16,8 @@ const HomePage = () => {
       <Navbar />
       <main>
         <Hero />
-        <Orateurs />
-        <Speakers />
+        {/* <Orateurs />
+        <Speakers /> */}
         <Programme />
         <Agenda />
         <Members />
