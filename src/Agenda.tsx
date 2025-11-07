@@ -55,7 +55,7 @@ const Agenda = () => {
             },
             {
               name: "Salle 2 - SESSION DERMATOLOGIE",
-              moderators: "M S Afif, E Samoud, A Oussedik",
+              moderators: "M S Afif, E Samoud, A Oussedik, Y Mohamed Sghaier",
               sessions: [
                 "La télédermatologie - H Maouche (Algérie), M Ely Telmoudi, A Youssouf",
                 "Dermatoses infectieuses",
@@ -109,13 +109,18 @@ const Agenda = () => {
             },
             {
               name: "Salle 2 - SESSION PNEUMOLOGIE",
-              moderators: "R Boukari, F Amon, F Bakouche",
+              moderators: "R Boukari, F Amon, F Albakoush, M Athié",
               sessions: [
                 "Nouveautés dans l'asthme préscolaire - N Dini (Maroc)",
                 "Asthme de l'enfant de plus de 6 ans - L Smati (Algérie)",
                 "Pneumopathies interstitielles - S Hamouda (Tunisie)",
                 "Approche diagnostique de la Mucoviscidose - A Hassani (Maroc)"
               ]
+            },
+            {
+              name: "Salle 3",
+              moderators: "",
+              sessions: []
             }
           ]
         },
@@ -200,7 +205,7 @@ const Agenda = () => {
           rooms: [
             {
               name: "Salle 1 - ENDOCRINO/MÉTABOLIQUES",
-              moderators: "S Hamouda, K Benhalla, L Hsissen, Y Khalef",
+              moderators: "S Hamouda, B Al-Zoubi, L Hsissen, Y Khalef",
               sessions: [
                 "Retard de croissance",
                 "Urgences endocriniennes néonatales - A Linglart (France)",
@@ -209,13 +214,18 @@ const Agenda = () => {
             },
             {
               name: "Salle 2 - GASTRO-ENTÉROLOGIE-NUTRITION",
-              moderators: "O Bouyahya, D Benlahcene, R Belbouab",
+              moderators: "O Bouyahya, D Benlahcene, R Belbouab, A Kane",
               sessions: [
                 "Diversification alimentaire, Allergie aux PLV - P Tounian (France)",
                 "Les œsophagites à éosinophiles - N Siala (Tunisie)",
                 "CAT devant une élévation des transaminases - O Bouyahya",
                 "Les gastrites à HP - L Beddi (Mauritanie)"
               ]
+            },
+            {
+              name: "Salle 3",
+              moderators: "",
+              sessions: []
             }
           ]
         },
@@ -246,7 +256,7 @@ const Agenda = () => {
           rooms: [
             {
               name: "Salle 1 - SESSION INFECTIOLOGIE",
-              moderators: "M Amorassini, K Benhalla, Z Fitouri, M Sylla",
+              moderators: "M Amorassini, K Benhalla, Z Fitouri, M Sylla, S A Soufiane",
               sessions: [
                 "Infections respiratoires virales - H Haas (France), N E Abdellahi",
                 "Problématique des résistances aux antibiotiques - M Bouskraoui",
@@ -255,13 +265,18 @@ const Agenda = () => {
             },
             {
               name: "Salle 2 - SESSION NÉPHROLOGIE",
-              moderators: "M Jellouli, M Boutaba, A Dahmoud",
+              moderators: "M Jellouli, M Boutaba, A Dahmoud, A Diakité",
               sessions: [
                 "Nouveautés dans la PEC du syndrome néphrotique - M Jellouli (Tunisie)",
                 "HTA de l'enfant - S Mabrouk (Tunisie)",
                 "Syndrome hémolytique et urémique - N E Abdellahi",
                 "La dialyse chez l'enfant - M Boutaba (Algerie)"
               ]
+            },
+            {
+              name: "Salle 3",
+              moderators: "",
+              sessions: []
             }
           ]
         },
@@ -337,7 +352,7 @@ const Agenda = () => {
             },
             {
               name: "Salle 2 - SESSION NÉONATOLOGIE 2",
-              moderators: "M F Maoulainine, M Doagi, N Youssef, A Feil",
+              moderators: "M F Maoulainine, M Doagi, O Ndiaye, A Feil",
               sessions: [
                 "Les infections nosocomiales - O Claris (France)",
                 "Les infections néonatales précoces - O Claris (France)",
@@ -362,7 +377,7 @@ const Agenda = () => {
           rooms: [
             {
               name: "Salle 1 - SESSION CARDIOLOGIE",
-              moderators: "M S Aghrabat, A Hassani, Z Fitouri",
+              moderators: "M S Aghrabat, A Hassani, Z Fitouri, M Kane",
               sessions: [
                 "Myocardites",
                 "Place de l'évaluation cardiovasculaire dans le syndrome de Turner - R Aboura (Algerie)",
@@ -371,7 +386,7 @@ const Agenda = () => {
             },
             {
               name: "Salle 2 - SESSION PÉDOPSYCHIATRIE",
-              moderators: "A Elmedani, J M Pedespan, K Haddad",
+              moderators: "A Elmedani, J M Pedespan, K Haddad, S Barro",
               sessions: [
                 "Spectre de l'autisme - A Oussedik (Algérie)",
                 "TDAH - F Gouhi (Mauritanie)",

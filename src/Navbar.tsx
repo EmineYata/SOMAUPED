@@ -1,9 +1,12 @@
 import { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import logo from './images/logo.png';
 import './Navbar.css';
 
 const Navbar = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
   const closeDropdown = () => {
     setDropdownOpen(false);
@@ -20,24 +23,24 @@ const Navbar = () => {
           </div>
         </div>
         <ul className="navbar-menu">
-          <li><a href="#accueil">Accueil</a></li>
-          <li><a href="#orateurs">Orateurs</a></li>
-          <li><a href="#programme">Programme</a></li>
-          <li><a href="#sponsor">Sponsor</a></li>
+          <li><a href={isHomePage ? "#accueil" : "/#accueil"}>Accueil</a></li>
+          <li><Link to="/orateurs">Orateurs</Link></li>
+          <li><a href={isHomePage ? "#programme" : "/#programme"}>Programme</a></li>
+          <li><a href={isHomePage ? "#sponsor" : "/#sponsor"}>Sponsor</a></li>
           <li 
             className="dropdown-menu-item"
             onMouseEnter={() => setDropdownOpen(true)}
             onMouseLeave={() => setDropdownOpen(false)}
           >
-            <a href="#membre" className="dropdown-toggle">
+            <a href={isHomePage ? "#membre" : "/#membre"} className="dropdown-toggle">
               SOMAUPED
               <span className="dropdown-arrow">▼</span>
             </a>
             {dropdownOpen && (
               <div className="dropdown-submenu">
                 <ul className="dropdown-submenu-inner">
-                  <li><a href="#membre" onClick={closeDropdown}>Bureau</a></li>
-                  <li><a href="#membre" onClick={closeDropdown}>Adhérant</a></li>
+                  <li><a href={isHomePage ? "#membre" : "/#membre"} onClick={closeDropdown}>Bureau</a></li>
+                  <li><Link to="/adherants" onClick={closeDropdown}>Adhérant</Link></li>
                 </ul>
               </div>
             )}

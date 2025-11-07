@@ -46,6 +46,91 @@
   padding: 20px 0;
 }
 
+/* Grille compacte pour ADHÉRANTS: ~10 par ligne en desktop */
+.adherants-grid {
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  gap: 16px;
+}
+
+/* Cartes et icônes plus petites uniquement pour les adhérants */
+.adherants-grid .adherant-card {
+  padding: 16px 10px;
+}
+
+.adherants-grid .member-icon-wrapper {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 10px;
+  box-shadow: none;
+}
+
+.adherants-grid .member-icon {
+  width: 36px;
+  height: 36px;
+}
+
+.adherants-grid .member-name {
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.adherants-grid .member-position {
+  font-size: 11px;
+}
+
+/* Responsiveness spécifique adhérants */
+@media (max-width: 1200px) {
+  .adherants-grid { grid-template-columns: repeat(8, 1fr); }
+}
+
+@media (max-width: 992px) {
+  .adherants-grid { grid-template-columns: repeat(6, 1fr); }
+}
+
+/* Grille spécifique pour le Bureau: ~5 par ligne */
+.bureau-grid {
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+}
+
+.bureau-grid .member-card {
+  padding: 24px 16px;
+}
+
+.bureau-grid .member-image-wrapper {
+  width: 120px;
+  height: 120px;
+  border-width: 4px;
+}
+
+.bureau-grid .member-name {
+  font-size: 18px;
+}
+
+.bureau-grid .member-position {
+  font-size: 14px;
+}
+
+@media (max-width: 1200px) {
+  .bureau-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (max-width: 992px) {
+  .bureau-grid { grid-template-columns: repeat(3, 1fr); }
+  .bureau-grid .member-image-wrapper { width: 110px; height: 110px; }
+  .bureau-grid .member-name { font-size: 17px; }
+}
+
+@media (max-width: 768px) {
+  .bureau-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .bureau-grid .member-image-wrapper { width: 100px; height: 100px; }
+  .bureau-grid .member-name { font-size: 16px; }
+}
+
+@media (max-width: 480px) {
+  .bureau-grid { grid-template-columns: 1fr; gap: 18px; }
+}
+
 .member-card {
   background: white;
   border-radius: 12px;

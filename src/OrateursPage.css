@@ -1,0 +1,70 @@
+.orateurs-page {
+  padding: 80px 20px;
+  background: #f8f9fa;
+}
+
+.orateurs-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.orateurs-section-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #2c3e50;
+  margin: 40px 0 20px;
+}
+
+.orateurs-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+.orateur-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 16px 10px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+.orateur-icon {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 10px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.orateur-icon svg { width: 36px; height: 36px; }
+
+.orateur-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+@media (max-width: 1200px) {
+  .orateurs-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (max-width: 992px) {
+  .orateurs-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .orateurs-page { padding: 60px 15px; }
+  .orateurs-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+}
+
+@media (max-width: 480px) {
+  .orateurs-grid { grid-template-columns: 1fr; gap: 12px; }
+  .orateur-icon { width: 60px; height: 60px; }
+  .orateur-icon svg { width: 30px; height: 30px; }
+  .orateur-name { font-size: 12px; }
+}

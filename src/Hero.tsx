@@ -64,7 +64,7 @@ const Hero = () => {
           <img src="/src/images/logo2.png" alt="Ministère" className="hero-logo-ministry" />
         </div>
         <div className="hero-top-cta">
-          <a href="#decouvrir" className="discover-btn">Mauritanie : un monde à découvrir</a>
+          <a href="#decouvrir" className="discover-btn">La Mauritanie : un monde à découvrir</a>
         </div>
         
         {/* Carte blanche avec contenu */}
