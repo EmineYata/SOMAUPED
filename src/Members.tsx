@@ -1,5 +1,33 @@
 import './Members.css';
 
+// Charge toutes les images du dossier bureau et expose leurs URLs (Vite)
+const bureauImages = import.meta.glob('./images/bureau/*.{png,jpg,jpeg,webp,svg}', {
+  eager: true,
+  as: 'url',
+}) as Record<string, string>;
+
+const normalize = (s: string) =>
+  s
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '');
+
+const resolveBureauImage = (name: string, fallback?: string) => {
+  const target = normalize(name);
+  // Cherche le meilleur match parmi les fichiers du dossier
+  let best: string | undefined;
+  for (const [path, url] of Object.entries(bureauImages)) {
+    const base = path.split('/').pop() || path;
+    const baseNorm = normalize(base.replace(/\.[^.]+$/, ''));
+    if (baseNorm.includes(target) || target.includes(baseNorm)) {
+      best = url;
+      break;
+    }
+  }
+  return best || fallback;
+};
+
 const Members = () => {
   const bureau = [
     {
@@ -82,15 +110,18 @@ const Members = () => {
         <div className="members-subsection">
           <h3 className="subsection-title">Bureau</h3>
           <div className="members-grid bureau-grid">
-            {bureau.map((member, index) => (
-              <div key={index} className="member-card">
-                <div className="member-image-wrapper">
-                  <img src={member.image} alt={member.name} className="member-image" />
+            {bureau.map((member, index) => {
+              const imgSrc = resolveBureauImage(member.name, member.image);
+              return (
+                <div key={index} className="member-card">
+                  <div className="member-image-wrapper">
+                    <img src={imgSrc} alt={member.name} className="member-image" />
+                  </div>
+                  <h3 className="member-name">{member.name}</h3>
+                  <p className="member-position">{member.position}</p>
                 </div>
-                <h3 className="member-name">{member.name}</h3>
-                <p className="member-position">{member.position}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>
