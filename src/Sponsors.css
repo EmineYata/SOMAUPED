@@ -323,6 +323,14 @@
   grid-template-columns: repeat(4, 1fr);
 }
 
+.gold-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.platinum-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
 .sponsor-logo-item {
   background: transparent;
   border: none;
@@ -446,7 +454,9 @@
     margin: 24px 0;
   }
 
-  .silver-grid {
+  .silver-grid,
+  .gold-grid,
+  .platinum-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -547,7 +557,9 @@
   }
 
   .sponsor-logos-grid,
-  .silver-grid {
+  .silver-grid,
+  .gold-grid,
+  .platinum-grid {
     grid-template-columns: 1fr;
     gap: 12px;
     margin: 20px 0;
