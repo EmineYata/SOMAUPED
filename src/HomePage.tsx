@@ -1,7 +1,6 @@
 import Navbar from './Navbar';
 import Hero from './Hero';
-import Orateurs from './Orateurs';
-import Speakers from './Speakers';
+
 import Programme from './Programme';
 import Agenda from './Agenda';
 import Sponsors from './Sponsors';
@@ -16,8 +15,7 @@ const HomePage = () => {
       <Navbar />
       <main>
         <Hero />
-        {/* <Orateurs />
-        <Speakers /> */}
+      
         <Programme />
         <Agenda />
         <Members />
