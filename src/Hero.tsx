@@ -64,7 +64,7 @@ const Hero = () => {
           <img src="/src/images/logo2.png" alt="Ministère" className="hero-logo-ministry" />
         </div>
         <div className="hero-top-cta">
-          <a href="#decouvrir" className="discover-btn">La Mauritanie : un monde à découvrir</a>
+          <a href="#decouvrir" className="discover-btn">Découvrir la Mauritanie, le coeur du Sahara</a>
         </div>
         
         {/* Carte blanche avec contenu */}
@@ -72,7 +72,7 @@ const Hero = () => {
           {/* Section patronage blanche */}
           <div className="hero-patronage-section">
             <div className="hero-subtitle">تحت رعاية معالي وزير الصحة</div>
-            <div className="hero-subtitle-fr">Sous le patronage de son excellence le ministre de la santé</div>
+            <div className="hero-subtitle-fr">Son excellence Monsieur le ministre de la santé</div>
           </div>
           
           {/* Section turquoise avec titres */}

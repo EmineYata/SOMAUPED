@@ -5,14 +5,14 @@ const Programme = () => {
     <section id="programme" className="programme-section">
       <div className="programme-overlay"></div>
       <div className="programme-content">
-        <h2 className="programme-title">PROGRAMME</h2>
+        <h2 className="programme-title">CONGRÈS</h2>
         <a 
           href="/src/images/programme.pdf" 
           target="_blank" 
           rel="noopener noreferrer" 
           className="programme-button"
         >
-          Télécharger le Programme
+          Télécharger le Congrès
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
             <polyline points="7 10 12 15 17 10"></polyline>

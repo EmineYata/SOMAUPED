@@ -25,7 +25,7 @@ const Navbar = () => {
         <ul className="navbar-menu">
           <li><a href={isHomePage ? "#accueil" : "/#accueil"}>Accueil</a></li>
           <li><Link to="/orateurs">Orateurs</Link></li>
-          <li><a href={isHomePage ? "#programme" : "/#programme"}>Programme</a></li>
+          <li><a href={isHomePage ? "#programme" : "/#programme"}>Congrès</a></li>
           <li><a href={isHomePage ? "#sponsor" : "/#sponsor"}>Sponsor</a></li>
           <li 
             className="dropdown-menu-item"

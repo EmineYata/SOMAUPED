@@ -3,6 +3,31 @@ import Footer from './Footer';
 import ScrollToTop from './ScrollToTop';
 import './OrateursPage.css';
 
+// Import dynamique des images d'orateurs depuis src/images/orateur
+const orateurImages = import.meta.glob('./images/orateur/*.{png,jpg,jpeg,webp,svg}', {
+  eager: true,
+  as: 'url',
+}) as Record<string, string>;
+
+const normalize = (s: string) =>
+  s
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '');
+
+const resolveOrateurImage = (name: string) => {
+  const target = normalize(name);
+  for (const [path, url] of Object.entries(orateurImages)) {
+    const base = path.split('/').pop() || path;
+    const baseNorm = normalize(base.replace(/\.[^.]+$/, ''));
+    if (baseNorm.includes(target) || target.includes(baseNorm)) {
+      return url;
+    }
+  }
+  return undefined;
+};
+
 const organisateurs = [
   'ISSELMOU KHALIFA',
   'AHMED FEIL',
@@ -41,17 +66,24 @@ const organisateurs = [
 const OrateursPage = () => {
   const renderGrid = (items: string[]) => (
     <div className="orateurs-grid">
-      {items.map((name, idx) => (
-        <div key={idx} className="orateur-card">
-          <div className="orateur-icon">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="12" cy="8" r="4" fill="currentColor"/>
-              <path d="M20 21C20 17.134 16.418 14 12 14C7.582 14 4 17.134 4 21" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-            </svg>
+      {items.map((name, idx) => {
+        const img = resolveOrateurImage(name);
+        return (
+          <div key={idx} className="orateur-card">
+            <div className={`orateur-icon ${img ? 'no-bg' : ''}`}>
+              {img ? (
+                <img className="orateur-photo" src={img} alt={name} />
+              ) : (
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="8" r="4" fill="currentColor"/>
+                  <path d="M20 21C20 17.134 16.418 14 12 14C7.582 14 4 17.134 4 21" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                </svg>
+              )}
+            </div>
+            <div className="orateur-name">{name}</div>
           </div>
-          <div className="orateur-name">{name}</div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 
