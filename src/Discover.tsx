@@ -19,7 +19,7 @@ const Discover = () => {
     <section id="decouvrir" className="discover-section">
       <div className="discover-container">
         <div className="discover-header">
-          <h2 className="discover-title">Mauritanie : un monde à découvrir</h2>
+          <h2 className="discover-title">Mauritanie : un pays  à découvrir</h2>
           <p className="discover-subtitle">Images et vidéos sélectionnées</p>
         </div>
 

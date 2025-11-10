@@ -16,6 +16,11 @@ const normalize = (s: string) =>
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '');
 
+// Noms pour lesquels la photo doit être masquée même si un fichier existe
+const blockedPhotoNames = new Set<string>([
+  normalize('FOLQUET F'),
+]);
+
 const resolveOrateurImage = (name: string) => {
   // Nettoyer les titres courants
   const raw = name.replace(/^(\s*)(dr|pr|prof|professeur|mr|mme|ms)\.?\s+/i, '');
@@ -95,7 +100,8 @@ const OrateursPage = () => {
   const renderGrid = (items: string[]) => (
     <div className="orateurs-grid">
       {items.map((name, idx) => {
-        const img = resolveOrateurImage(name);
+        const isBlocked = blockedPhotoNames.has(normalize(name));
+        const img = isBlocked ? undefined : resolveOrateurImage(name);
         return (
           <div key={idx} className="orateur-card">
             <div className={`orateur-icon ${img ? 'no-bg' : ''}`}>
