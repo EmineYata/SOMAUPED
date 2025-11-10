@@ -17,12 +17,40 @@ const normalize = (s: string) =>
     .replace(/[^a-z0-9]+/g, '');
 
 const resolveOrateurImage = (name: string) => {
-  const target = normalize(name);
+  // Nettoyer les titres courants
+  const raw = name.replace(/^(\s*)(dr|pr|prof|professeur|mr|mme|ms)\.?\s+/i, '');
+  const targetNorm = normalize(raw);
+
+  // Découper en tokens (après normalisation non-destructive pour les initiales)
+  const plain = raw
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .trim();
+  const tokens = plain.split(/[^a-z0-9]+/).filter(Boolean);
+
+  // Construire des candidats: prenomnom, nomprenom, initialenom, nom, tous tokens concaténés
+  const first = tokens[0] || '';
+  const last = tokens.length > 1 ? tokens[tokens.length - 1] : '';
+  const firstInitial = first ? first[0] : '';
+
+  const candidates = new Set<string>([
+    targetNorm,
+    normalize(`${first}${last}`),
+    normalize(`${last}${first}`),
+    normalize(`${firstInitial}${last}`),
+    normalize(last),
+    normalize(tokens.join(' ')),
+  ]);
+
   for (const [path, url] of Object.entries(orateurImages)) {
     const base = path.split('/').pop() || path;
     const baseNorm = normalize(base.replace(/\.[^.]+$/, ''));
-    if (baseNorm.includes(target) || target.includes(baseNorm)) {
-      return url;
+    for (const cand of candidates) {
+      if (!cand) continue;
+      if (baseNorm.includes(cand) || cand.includes(baseNorm)) {
+        return url;
+      }
     }
   }
   return undefined;
@@ -50,7 +78,7 @@ const organisateurs = [
   'M BOUTABA',
   'A OUSSEDIK',
   'YACOUB KHALEF',
-  'W MESSADI','L HADDAD','K HADDAD','S A SOUFIANE','KHATRI MEKHALLE','H KEBE','F GOUHI','SAMY DADDAH','H AFILAL','M S AFIFI','M BOUSKRAOUI','L KARBOUBI','N DINI','A ELMEDANI','O MOUTI','A OULMAATI','K OUAYA','D BENLAHCENE','L HSISSEN','M ELKHOURASSANI','M R F MAOULAININE','M MOKHTARI','K BEHAMOU','H NJIMA','M DADOUN','J ELOUDGHIRI','F Z NIANE','FATIMA O BENNANI','K SEBAA','CH DAISSAOUI','A KHATTABI','H KAICER','R ELARCHI','A ROUISSI','A ZAHOUANI','K MENIF','M DOUAGI','T SFAR','L BOUGHAMOURA','N SIALA','F THABET','T GARGAH','S HAMOUDA','O BOUYAHYA','M KHEMIRI','S MABROUK','E BEN HAMIDA','Z FITOURI','F B ALBOUKOUSH','N ALI FARAJ','O NDIAYE','R DIAGNE','M SYLLA','A DIAKHITE','M AMORASSINI','FOLQUET F','AMON TANOH DICK','S ATEGBO','D ENYAMA','D CHELO','B AL-ZOUBI','P TOUNIAN','A LINGLART','H HAAS','E MAHE','JM PEDESPAN','O CLARIS',
+  'W MESSADI','L HADDAD','K HADDAD','S A SOUFIANE','KHATRI MEKHALLE','H KEBE','F GOUHI','SAMY DADDAH','Hassan Afilal','M S AFIFI','M BOUSKRAOUI','L KARBOUBI','N DINI','A ELMEDANI','O MOUTI','A OULMAATI','K OUAYA','D BENLAHCENE','L HSISSEN','M ELKHOURASSANI','M R F MAOULAININE','M MOKHTARI','K BEHAMOU','H NJIMA','M DADOUN','J ELOUDGHIRI','F Z NIANE','FATIMA O BENNANI','K SEBAA','CH DAISSAOUI','A KHATTABI','H KAICER','R ELARCHI','A ROUISSI','A ZAHOUANI','K MENIF','M DOUAGI','T SFAR','L BOUGHAMOURA','N SIALA','F THABET','T GARGAH','S HAMOUDA','O BOUYAHYA','M KHEMIRI','S MABROUK','E BEN HAMIDA','Z FITOURI','F B ALBOUKOUSH','N ALI FARAJ','O NDIAYE','R DIAGNE','M SYLLA','A DIAKHITE','M AMORASSINI','FOLQUET F','AMON TANOH DICK','S ATEGBO','D ENYAMA','D CHELO','B AL-ZOUBI','P TOUNIAN','A LINGLART','Hervé Haas','E MAHE','JM PEDESPAN','O CLARIS',
 
  
 ];

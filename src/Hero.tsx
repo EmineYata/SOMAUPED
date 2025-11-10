@@ -72,7 +72,7 @@ const Hero = () => {
           {/* Section patronage blanche */}
           <div className="hero-patronage-section">
             <div className="hero-subtitle">تحت رعاية معالي وزير الصحة</div>
-            <div className="hero-subtitle-fr">Son excellence Monsieur le ministre de la santé</div>
+            <div className="hero-subtitle-fr">Sous le haut patronage de son excellence Monsieur le ministre de la santé</div>
           </div>
           
           {/* Section turquoise avec titres */}
