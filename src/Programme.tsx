@@ -1,4 +1,9 @@
 import './Programme.css';
+// Recherche du PDF dans src/images (préférence pour un nom contenant 'programme')
+const pdfModules = import.meta.glob('./images/*.pdf', { eager: true, as: 'url' }) as Record<string, string>;
+const pdfEntries = Object.entries(pdfModules);
+const preferred = pdfEntries.find(([path]) => /programme/i.test(path));
+const programmePdf = (preferred?.[1] || pdfEntries[0]?.[1]) as string | undefined;
 
 const Programme = () => {
   return (
@@ -7,7 +12,7 @@ const Programme = () => {
       <div className="programme-content">
         <h2 className="programme-title">CONGRÈS</h2>
         <a 
-          href="/src/images/programme.pdf" 
+          href={programmePdf || '#'} 
           target="_blank" 
           rel="noopener noreferrer" 
           className="programme-button"
