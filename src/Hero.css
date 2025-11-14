@@ -1,0 +1,450 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-top: 90px;
+}
+
+/* Carrousel d'images de fond */
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+  z-index: 0;
+}
+
+.hero-background.active {
+  opacity: 1;
+}
+
+/* Indicateurs de carrousel */
+.carousel-indicators {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 10;
+}
+
+.carousel-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.carousel-dot:hover {
+  background: rgba(255, 255, 255, 0.8);
+  transform: scale(1.2);
+}
+
+.carousel-dot.active {
+  background: #ffffff;
+  width: 40px;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to top left,
+    rgba(32, 156, 180, 0.85) 0%,
+    rgba(32, 156, 180, 0.7) 40%,
+    rgba(32, 156, 180, 0.4) 70%,
+    transparent 100%
+  );
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.hero-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+/* Top CTA button linking to Discover */
+.hero-top-cta {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.discover-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #209CB4;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+  border: 2px solid rgba(32,156,180,0.2);
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
+}
+
+.discover-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.22);
+  background: #e9f8fb;
+}
+
+.discover-btn:active {
+  transform: translateY(0);
+}
+
+/* Carte blanche centrale */
+.hero-white-card {
+  max-width: 1000px;
+  margin: 80px auto 40px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Section patronage (fond blanc) */
+.hero-patronage-section {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 30px 40px;
+  text-align: center;
+  max-width: 72%;
+  margin: 0 auto;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  position: relative;
+  z-index: 2;
+  transform: translateY(22px);
+}
+
+/* Section congress (fond turquoise) */
+.hero-congress-section {
+  background: linear-gradient(135deg, rgba(32, 156, 180, 0.95) 0%, rgba(45, 176, 200, 0.95) 100%);
+  padding: 60px 40px 40px; /* espace en haut pour le chevauchement de la pastille blanche */
+  text-align: center;
+  border-radius: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-logo {
+  height: 120px;
+  width: auto;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+.hero-logo-ministry {
+  height: 120px;
+  width: auto;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  color: #209CB4;
+  margin-bottom: 8px;
+  font-weight: 600;
+  direction: rtl;
+}
+
+.hero-subtitle-fr {
+  font-size: 18px;
+  color: #209CB4;
+  margin-bottom: 0;
+  font-weight: 600;
+}
+
+.hero-title-ar {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #ffffff;
+  direction: rtl;
+  text-shadow: none;
+}
+
+.hero-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #ffffff;
+  text-shadow: none;
+  line-height: 1.3;
+}
+
+.hero-subtitle-congress {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #ffffff;
+  text-shadow: none;
+  line-height: 1.4;
+}
+
+.hero-subtitle-congress:last-of-type {
+  margin-bottom: 0;
+}
+
+.hero-info {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+}
+
+.hero-location,
+.hero-date {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  color: #ecf0f1;
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 100px;
+}
+
+.countdown-value {
+  font-size: 48px;
+  font-weight: 700;
+  color: #f39c12;
+  line-height: 1;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.countdown-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #bdc3c7;
+  letter-spacing: 1px;
+}
+
+.hero-shapes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.shape {
+  position: absolute;
+  opacity: 0.6;
+  animation: float 6s ease-in-out infinite;
+}
+
+.shape-1 {
+  top: 10%;
+  left: 5%;
+  width: 60px;
+  animation-delay: 0s;
+}
+
+.shape-2 {
+  top: 60%;
+  right: 10%;
+  width: 80px;
+  animation-delay: 1s;
+}
+
+.shape-3 {
+  bottom: 15%;
+  left: 15%;
+  width: 70px;
+  animation-delay: 2s;
+}
+
+.shape-4 {
+  top: 30%;
+  right: 8%;
+  width: 50px;
+  animation-delay: 3s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    margin-top: 120px;
+  }
+
+  .hero-logos {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .hero-logo,
+  .hero-logo-ministry {
+    height: 80px;
+  }
+
+  .hero-white-card {
+    max-width: 90%;
+    margin: 60px auto 30px;
+    border-radius: 15px;
+  }
+
+  .hero-patronage-section {
+    padding: 22px 24px;
+    max-width: 82%;
+    transform: translateY(18px);
+  }
+
+  .hero-congress-section {
+    padding: 50px 25px 25px;
+    border-radius: 16px;
+  }
+
+  .hero-subtitle,
+  .hero-subtitle-fr {
+    font-size: 16px;
+  }
+
+  .hero-title {
+    font-size: 22px;
+  }
+
+  .hero-title-ar {
+    font-size: 22px;
+  }
+
+  .hero-subtitle-congress {
+    font-size: 22px;
+  }
+
+  .countdown-value {
+    font-size: 36px;
+  }
+
+  .countdown-item {
+    min-width: 70px;
+  }
+
+  .carousel-indicators {
+    bottom: 20px;
+    gap: 10px;
+  }
+
+  .carousel-dot {
+    width: 10px;
+    height: 10px;
+  }
+
+  .carousel-dot.active {
+    width: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-white-card {
+    max-width: 95%;
+    margin: 40px auto 30px;
+    border-radius: 12px;
+  }
+
+  .hero-patronage-section {
+    padding: 18px 18px;
+    max-width: 88%;
+    transform: translateY(14px);
+    border-radius: 12px;
+  }
+
+  .hero-congress-section {
+    padding: 42px 20px 22px;
+    border-radius: 14px;
+  }
+
+  .hero-subtitle,
+  .hero-subtitle-fr {
+    font-size: 14px;
+  }
+
+  .hero-title {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+
+  .hero-title-ar {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+
+  .hero-subtitle-congress {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .hero-info {
+    margin-bottom: 30px;
+    gap: 20px;
+  }
+
+  .carousel-indicators {
+    bottom: 15px;
+    gap: 8px;
+  }
+
+  .carousel-dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .carousel-dot.active {
+    width: 24px;
+  }
+}

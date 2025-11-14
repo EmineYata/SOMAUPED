@@ -1,0 +1,90 @@
+.programme-section {
+  position: relative;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('./images/slider-bg2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.programme-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(30, 35, 60, 0.85);
+  z-index: 1;
+}
+
+.programme-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.programme-title {
+  font-size: 48px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 40px 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.programme-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 40px;
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
+}
+
+/* espace entre les boutons */
+.programme-content .programme-button + .programme-button {
+  margin-left: 12px;
+}
+
+.programme-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(231, 76, 60, 0.6);
+  background: linear-gradient(135deg, #c0392b, #e74c3c);
+}
+
+.programme-button svg {
+  transition: transform 0.3s ease;
+}
+
+.programme-button:hover svg {
+  transform: translateY(3px);
+}
+
+@media (max-width: 768px) {
+  .programme-title {
+    font-size: 32px;
+  }
+
+  .programme-button {
+    padding: 15px 30px;
+    font-size: 14px;
+  }
+
+  /* sur mobile, marge verticale entre boutons */
+  .programme-content .programme-button + .programme-button {
+    margin-left: 0;
+    margin-top: 12px;
+    display: inline-flex;
+  }
+}
