@@ -1,10 +1,6 @@
 import './Programme.css';
-const pdfModules = import.meta.glob('./images/*.pdf', { eager: true, query: '?url', import: 'default' }) as Record<string, string>;
-const pdfEntries = Object.entries(pdfModules);
-const preferred = pdfEntries.find(([path]) => /programme/i.test(path));
-const programmePdf = (preferred?.[1] || pdfEntries[0]?.[1]) as string | undefined;
-const livreEntry = pdfEntries.find(([path]) => /(livre|book|guide)/i.test(path));
-const livrePdf = (livreEntry?.[1]) as string | undefined;
+import programmePdf from './images/profinale.pdf';
+import livrePdf from './images/Congrès Livre.pdf';
 
 const Programme = () => {
   return (
@@ -13,7 +9,7 @@ const Programme = () => {
       <div className="programme-content">
         <h2 className="programme-title">CONGRÈS</h2>
         <a 
-          href={programmePdf || '#'} 
+          href={programmePdf} 
           target="_blank" 
           rel="noopener noreferrer" 
           className="programme-button"
