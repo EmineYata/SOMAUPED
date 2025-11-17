@@ -1,9 +1,6 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import logo from './images/logo.png';
-import mainBg1 from './images/bg1.jpg';
-import mainBg2 from './images/bg2.jpg';
-import mainBg3 from './images/bg5.jpg';
-import mainBg4 from './images/bg4.jpg';
 import './Hero.css';
 
 const Hero = () => {
@@ -23,8 +20,6 @@ const Hero = () => {
     return { days: 0, hours: 0, minutes: 0, seconds: 0 };
   };
 
-  const backgroundImages = [mainBg1 ,mainBg2,mainBg3,mainBg4];
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
   // Timer pour le compte à rebours
@@ -36,35 +31,15 @@ const Hero = () => {
     return () => clearInterval(timer);
   }, []);
 
-  // Carrousel d'images automatique
-  useEffect(() => {
-    const carousel = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => 
-        prevIndex === 3 ? 0 : prevIndex + 1
-      );
-    }, 5000); // Change d'image toutes les 5 secondes
-
-    return () => clearInterval(carousel);
-  }, []);
-
   return (
     <section id="accueil" className="hero">
-      {/* Images de fond en carrousel */}
-      {backgroundImages.map((image, index) => (
-        <div
-          key={index}
-          className={`hero-background ${index === currentImageIndex ? 'active' : ''}`}
-          style={{ backgroundImage: `url(${image})` }}
-        ></div>
-      ))}
-      <div className="hero-overlay"></div>
       <div className="hero-content">
         <div className="hero-logos">
           <img src={logo} alt="SOMAUPED" className="hero-logo" />
           <img src="/src/images/logo2.png" alt="Ministère" className="hero-logo-ministry" />
         </div>
         <div className="hero-top-cta">
-          <a href="#decouvrir" className="discover-btn">Découvrir la Mauritanie, le coeur du Sahara</a>
+          <Link to="/decouvrir" className="discover-btn">Découvrir la Mauritanie, le coeur du Sahara</Link>
         </div>
         
         {/* Carte blanche avec contenu */}
@@ -124,24 +99,7 @@ const Hero = () => {
         </div>
       </div>
       
-      <div className="hero-shapes">
-        <img src="/src/images/shapes/1.png" className="shape shape-1" alt="" />
-        <img src="/src/images/shapes/2.png" className="shape shape-2" alt="" />
-        <img src="/src/images/shapes/3.png" className="shape shape-3" alt="" />
-        <img src="/src/images/shapes/4.png" className="shape shape-4" alt="" />
-      </div>
-
-      {/* Indicateurs de carrousel */}
-      <div className="carousel-indicators">
-        {backgroundImages.map((_, index) => (
-          <button
-            key={index}
-            className={`carousel-dot ${index === currentImageIndex ? 'active' : ''}`}
-            onClick={() => setCurrentImageIndex(index)}
-            aria-label={`Image ${index + 1}`}
-          />
-        ))}
-      </div>
+      
     </section>
   );
 };

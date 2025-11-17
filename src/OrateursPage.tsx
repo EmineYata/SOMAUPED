@@ -20,11 +20,14 @@ const normalize = (s: string) =>
 // Noms pour lesquels la photo doit être masquée même si un fichier existe
 const blockedPhotoNames = new Set<string>([
   normalize('FOLQUET F'),
+  normalize('KARIMA HADDAD'),
 ]);
 
 const resolveOrateurImage = (name: string) => {
-  // Nettoyer les titres courants
-  const raw = name.replace(/^(\s*)(dr|pr|prof|professeur|mr|mme|ms)\.?\s+/i, '');
+  // Nettoyer les titres courants et retirer la partie pays entre parenthèses en fin de chaîne
+  const raw = name
+    .replace(/^(\s*)(dr|pr|prof|professeur|mr|mme|ms)\.?\s+/i, '')
+    .replace(/\([^)]*\)\s*$/, '');
   const targetNorm = normalize(raw);
 
   // Découper en tokens (après normalisation non-destructive pour les initiales)
@@ -64,30 +67,89 @@ const resolveOrateurImage = (name: string) => {
 
 const organisateurs = [
   
-  'ISSELMOU KHALIFA',
-  'AHMED FEIL',
-  'OUKHT ELBENINA ZEIN',
-  'A LINGLART',
-  'HAMDY ELMOUSTAPHA',
+  'ISSELMOU KHALIFA (Mauritanie)',
+  'AHMED FEIL (Mauritanie)',
+  'OUKHT ELBENINA ZEIN (Mauritanie)',
+  'A LINGLART (France)',
+  'HAMDY ELMOUSTAPHA (Mauritanie)',
+  'NASSER DINE ABDELLAHI (Mauritanie)',
+  'AICHA BIHA (Mauritanie)',
+  'H MAOUCHE (Algerie)',
+   'S HAMOUDA (Tunisie)',
+  'O BOUYAHYA (Tunisie)',
+  'M KHEMIRI (Tunisie)',
+  'S MABROUK (Tunisie)',
+  'E BEN HAMIDA (Tunisie)',
+  'R BOUKARI (Algerie)',
+  'L SMATI (Algerie)',
+  'R ABOURA (Algerie)',
+  'AHMED YOUSSEF (Mauritanie)',
+  'O BENRABAH (Algerie)',
+  'R BELBOUAB (Algerie)'
+  ,'P TOUNIAN (France)',
+  'AMINA BOYE (Mauritanie)',
+  'Dominique Enyama (Cameroun)',
+  'MARIEM SIDATT (Mauritanie)',
+  'E MAHE (France) ','JM PEDESPAN (France)','O CLARIS (France)',
+  'HOUDA RABANI (Mauritanie)',
+  'K BOUAYED (Maroc)',
+  'M BOUTABA  (Algerie)',
+  'A OUSSEDIK (Algerie)',
+  'YACOUB KHALEF (Mauritanie)',
+  'W MESSADI (Algerie)',
+  'J HADDAD  (Liban) ',
+  'HADAD LAHLOU (Algerie) '
+  ,'Abass Mohamed  (Mauritanie)',
+  'KARIMA HADDAD (Algerie) ',
+  'Amale Hassani (Maroc) ',
+  'S A SOUFIANE (Mauritanie) ',
+  'M E TELMOUDI (Mauritanie)',
+  'ABIDA MEGUEYA  (Mauritanie)',
+  'KHATRI MEKHALLE (Mauritanie)',
+  'H KEBE (Mauritanie)',
+  'Mouna Zouine (Maroc)',
+  'LEMRABOTT BEDDI (Mauritanie)',
+  'Kane Elhadj Malick (Mauritanie)',
+  'F GOUHI (Mauritanie)',
+  'SAMY DADDAH (Mauritanie)',
+  'Azza Sammoud (Tunisie)',
+  'Hassan Afilal (Maroc)',
+  'M S AFIF (Maroc)',
+  'Manel Jallouli (Tunisie)',
+  'M BOUSKRAOUI (Maroc)',
+  'L KARBOUBI (Maroc)',
+  'N DINI (Maroc)',
+  'AMON TANOH DICK (Côte d\'ivoire)',
+  'S ATEGBO (Gabon)',
+  'D ENYAMA (Cameroun)',
+  'D CHELO (Cameroun)',
+  'B AL-ZOUBI (Jordanie)',
+  'A ELMEDANI (Maroc)',
+  'O MOUTI (Maroc)',
+  'A OULMAATI (Maroc)',
+  'D BENLAHCENE (Maroc)',
+  'L HSISSEN (Maroc)',
+  'Hervé Haas (France)',
+  'M ELKHOURASSANI (Maroc)',
+  'M R F MAOULAININE (Maroc)',
+  'M MOKHTARI (Maroc)',
+  'K MENIF (Tunisie)',
+  'M DOUAGI (Tunisie)',
+  'T SFAR (Tunisie)',
+  'L BOUGHAMOURA (Tunisie)',
+  'N SIALA (Tunisie)',
+  'Farah Thabet (Tunisie)',
+ 
+  'Z FITOURI (Tunisie)',
+  'F AL BAKOUSH (Libye)',
+  'ALI FARAJ (Libye)',
+  'O NDIAYE (Sénégal)',
+  'R DIAGNE (Sénégal)',
+  'M SYLLA (Mali)',
+  'A DIAKHITE (Mali)',
+  'M AMORASSINI (Côte d\'ivoire)',
+  'FOLQUET F  (Côte d\'ivoire)',
   
-  'NASSER DINE ABDELLAHI',
-  'AICHA BIHA',
-  'H MAOUCHE',
-  'R BOUKHARI',
-  'L SMATI',
-  'R ABOURA',
-  'AHMED YOUSSEF',
-  'O BENRABAH',
-  'R BELBOUAB'
-  ,'P TOUNIAN',
-  'AMINA BOYE',
-  'MOUNA SIDATT',
-  'HOUDA RABANI',
-  'K BOUAYED',
-  'M BOUTABA',
-  'A OUSSEDIK',
-  'YACOUB KHALEF',
-  'W MESSADI','J HADDAD','Abass Mohamed','K HADDAD','Amale Hassani','S A SOUFIANE','PR MOHAMED ELY TELMOUDI','ABIDA MEGUEYA','KHATRI MEKHALLE','H KEBE','Mouna Zouine','LEMRABOTT BEDDI','Kane Elhadj Malick','F GOUHI','SAMY DADDAH','Pr Azza Sammoud','Hassan Afilal','M S AFIFI','Pr Manel Jallouli','M BOUSKRAOUI','L KARBOUBI','N DINI','A ELMEDANI','O MOUTI','A OULMAATI','K OUAYA','D BENLAHCENE','L HSISSEN','M ELKHOURASSANI','M R F MAOULAININE','M MOKHTARI','K BEHAMOU','H NJIMA','M DADOUN','J ELOUDGHIRI','F Z NIANE','FATIMA O BENNANI','K SEBAA','CH DAISSAOUI','A KHATTABI','H KAICER','R ELARCHI','A ROUISSI','A ZAHOUANI','K MENIF','M DOUAGI','T SFAR','L BOUGHAMOURA','N SIALA','Farah Thabet','T GARGAH','S HAMOUDA','O BOUYAHYA','M KHEMIRI','S MABROUK','E BEN HAMIDA','Z FITOURI','F B ALBOUKOUSH','N ALI FARAJ','O NDIAYE','R DIAGNE','M SYLLA','A DIAKHITE','M AMORASSINI','FOLQUET F','AMON TANOH DICK','S ATEGBO','D ENYAMA','D CHELO','B AL-ZOUBI','Hervé Haas','E MAHE','JM PEDESPAN','O CLARIS',
 
  
 ];

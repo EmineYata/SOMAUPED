@@ -26,6 +26,7 @@ const Navbar = () => {
           <li><a href={isHomePage ? "#accueil" : "/#accueil"}>Accueil</a></li>
           <li><a href={isHomePage ? "#programme" : "/#programme"}>Congrès</a></li>
           <li><a href={isHomePage ? "#sponsor" : "/#sponsor"}>Sponsor</a></li>
+          {/* <li><Link to="/decouvrir">Découvrir</Link></li> */}
           <li 
             className="dropdown-menu-item"
             onMouseEnter={() => setDropdownOpen(true)}
