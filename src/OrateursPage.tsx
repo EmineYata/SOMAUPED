@@ -88,7 +88,7 @@ const organisateurs = [
   'R BELBOUAB (Algerie)'
   ,'P TOUNIAN (France)',
   'AMINA BOYE (Mauritanie)',
-  'Dominique Enyama (Cameroun)',
+
   'MARIEM SIDATT (Mauritanie)',
   'E MAHE (France) ','JM PEDESPAN (France)','O CLARIS (France)',
   'HOUDA RABANI (Mauritanie)',
