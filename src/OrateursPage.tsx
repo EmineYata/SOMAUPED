@@ -146,7 +146,7 @@ const organisateurs = [
   'O NDIAYE (Sénégal)',
   'R DIAGNE (Sénégal)',
   'M SYLLA (Mali)',
-  'A DIAKHITE (Mali)',
+  'A DIAKITE (Mali)',
   'M AMORASSINI (Côte d\'ivoire)',
   'FOLQUET F  (Côte d\'ivoire)',
   
@@ -166,7 +166,10 @@ const OrateursPage = () => {
   const renderGrid = (items: string[]) => (
     <div className="orateurs-grid">
       {items.map((name, idx) => {
-        const isBlocked = blockedPhotoNames.has(normalize(name));
+        const cleanedForBlock = name
+          .replace(/^(\s*)(dr|pr|prof|professeur|mr|mme|ms)\.?\s+/i, '')
+          .replace(/\([^)]*\)\s*$/, '');
+        const isBlocked = blockedPhotoNames.has(normalize(cleanedForBlock));
         const img = isBlocked ? undefined : resolveOrateurImage(name);
         return (
           <div key={idx} className="orateur-card">
